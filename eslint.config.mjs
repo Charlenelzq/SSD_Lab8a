@@ -21,6 +21,7 @@ import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
 import pluginSecurity from "eslint-plugin-security";
 import pluginSecurityNode from "eslint-plugin-security-node";
+import pluginNoUnsanitized from "eslint-plugin-no-unsanitized";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -32,12 +33,14 @@ export default [
     plugins: {
       security: pluginSecurity,
       "security-node": pluginSecurityNode,
+      "no-unsanitized": pluginNoUnsanitized,
     },
     rules: {
       ...pluginJs.configs.recommended.rules,
       ...pluginReact.configs.flat.recommended.rules,
       ...pluginSecurity.configs.recommended.rules,
       ...pluginSecurityNode.configs.recommended.rules,
+      ...pluginNoUnsanitized.configs.recommended.rules,
       "security/detect-eval-with-expression": "error",
     },
   },
